@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6923b467476c416cbfe31063dcd01ec1, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
+  registeredItem:
+  - type: 0
+    sprite: {fileID: 0}
