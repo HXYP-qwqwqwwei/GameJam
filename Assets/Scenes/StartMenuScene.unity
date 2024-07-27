@@ -250,6 +250,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1327390826976521762, guid: e99a44154e7e1ae408509541db065966, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SceneLoader
+      objectReference: {fileID: 0}
+    - target: {fileID: 1327390826976521762, guid: e99a44154e7e1ae408509541db065966, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuToStartGame, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 2876310039999303462, guid: e99a44154e7e1ae408509541db065966, type: 3}
       propertyPath: m_LocalPosition.x
       value: -499
@@ -305,6 +313,14 @@ PrefabInstance:
     - target: {fileID: 4967132565633043274, guid: e99a44154e7e1ae408509541db065966, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: MenuGameScene, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5637622890951158358, guid: e99a44154e7e1ae408509541db065966, type: 3}
+      propertyPath: m_Name
+      value: StartButon
+      objectReference: {fileID: 0}
+    - target: {fileID: 5637622890951158358, guid: e99a44154e7e1ae408509541db065966, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6157358399712108916, guid: e99a44154e7e1ae408509541db065966, type: 3}
       propertyPath: m_Name
