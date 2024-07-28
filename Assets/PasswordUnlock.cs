@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class PasswordUnlock : MonoBehaviour
 {
+    public GameInstance gameInstance;
     public Button[] numberButtons;  // 数字按钮数组
     public Image phoneImage;  // 原始手机图片
     public Image unlockedImage;  // 解锁后的图片
@@ -34,6 +35,7 @@ public class PasswordUnlock : MonoBehaviour
             if (inputPassword == correctPassword)
             {
                 UnlockResource();
+                gameInstance.gameState.phoneUnlocked = true;
             }
             else
             {
@@ -48,6 +50,7 @@ public class PasswordUnlock : MonoBehaviour
         // 显示解锁后的图片
         phoneImage.gameObject.SetActive(false);
         unlockedImage.gameObject.SetActive(true);
+        gameInstance.gameState.phoneUnlocked = true;
         // Debug.Log("资源已解锁！");
     }
 

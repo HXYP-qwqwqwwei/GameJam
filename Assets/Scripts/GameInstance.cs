@@ -7,8 +7,9 @@ using UnityEngine.Serialization;
 [Serializable]
 public class GameState
 {
-    public bool isValid = false;
-    
+    public bool phoneUnlocked = false;
+    public bool saferUnlocked = false;
+    public bool televisionOpened = false;
 }
 
 public class GameInstance : MonoBehaviour
@@ -23,6 +24,8 @@ public class GameInstance : MonoBehaviour
     private InventoryView _inventoryView;
     
     public GameObject invSlotPrefab;
+
+    public GameState gameState;
 
     private void Update()
     {
@@ -62,4 +65,9 @@ public class GameInstance : MonoBehaviour
     }
 
     public InventoryView InventoryView => _inventoryView;
+
+    public void RecognizedKiller()
+    {
+        gameState.televisionOpened = true;
+    }
 }

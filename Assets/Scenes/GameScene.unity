@@ -3261,6 +3261,11 @@ MonoBehaviour:
   - {fileID: 409196221}
   - {fileID: 317859288}
   inventoryObject: {fileID: 92779272}
+  invSlotPrefab: {fileID: 0}
+  gameState:
+    phoneUnlocked: 0
+    saferUnlocked: 0
+    televisionOpened: 0
 --- !u!4 &552498045
 Transform:
   m_ObjectHideFlags: 0
@@ -4814,11 +4819,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1647663673}
-  m_Father: {fileID: 3333777303661425330}
+  m_Father: {fileID: 1649904109}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -148.36084, y: 36.57242}
+  m_AnchoredPosition: {x: -143.36084, y: -103.42758}
   m_SizeDelta: {x: 254.985, y: 41.0612}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &806143087
@@ -8687,7 +8692,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4613072073087137098, guid: 30cf2f857fb89e141ab3e9518578f51b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.002916724
+      value: 0.000058970894
       objectReference: {fileID: 0}
     - target: {fileID: 6437708133196546485, guid: 30cf2f857fb89e141ab3e9518578f51b, type: 3}
       propertyPath: m_Name
@@ -10518,7 +10523,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1769109531}
+  - {fileID: 806143086}
+  - {fileID: 1694138339}
   m_Father: {fileID: 3333777303661425330}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -10782,11 +10790,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1038915926}
-  m_Father: {fileID: 3333777303661425330}
+  m_Father: {fileID: 1649904109}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -146.39313, y: 202.65479}
+  m_AnchoredPosition: {x: -141.39313, y: 62.654785}
   m_SizeDelta: {x: 172.3675, y: 115.8648}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1694138340
@@ -11304,11 +11312,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 284842557}
-  m_Father: {fileID: 3333777303661425330}
+  m_Father: {fileID: 1649904109}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 226.67151, y: 165.11581}
+  m_AnchoredPosition: {x: 231.67151, y: 25.115784}
   m_SizeDelta: {x: 265.261, y: 261.7408}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1769109532
@@ -11996,6 +12004,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1887968439}
         m_TargetAssemblyTypeName: SwitchScene, Assembly-CSharp
         m_MethodName: SceneSwitcher
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 552498044}
+        m_TargetAssemblyTypeName: GameInstance, Assembly-CSharp
+        m_MethodName: RecognizedKiller
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13612,9 +13632,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1649904109}
-  - {fileID: 1769109531}
-  - {fileID: 806143086}
-  - {fileID: 1694138339}
   m_Father: {fileID: 687413922}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3395981283990529872
@@ -13716,6 +13733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c767b23513eb94aad38d75f767d07c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameInstance: {fileID: 552498044}
   numberButtons:
   - {fileID: 1565249604}
   - {fileID: 401279392}
