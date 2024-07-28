@@ -15,3 +15,5 @@ MonoBehaviour:
   registeredItem:
   - type: 0
     sprite: {fileID: 0}
+  - type: 1
+    sprite: {fileID: -2230352761875179815, guid: 44a8b76b70d48db4aa2dcac3eb64eb88, type: 3}
