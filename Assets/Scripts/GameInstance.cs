@@ -22,13 +22,25 @@ public class GameInstance : MonoBehaviour
     private int _currentSceneIndex;
     private InventoryView _inventoryView;
     
-    
+    public GameObject invSlotPrefab;
+
+    private void Update()
+    {
+        if (inventory.SelectedSlotIndex != _inventoryView.selectedSlotIndex)
+        {
+            _inventoryView.selectedSlotIndex = inventory.SelectedSlotIndex;
+            _inventoryView.UpdateInventory();
+        }
+    }
+
 
     private void Start()
     {
         _inventoryView = inventoryObject.GetComponent<InventoryView>();
         inventory.Clear();
         _inventoryView.inventory = inventory;
+        inventory.SelectedSlotIndex = -1;
+        _inventoryView.UpdateInventory();
     }
 
     public void NextScene()

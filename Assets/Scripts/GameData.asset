@@ -15,3 +15,11 @@ MonoBehaviour:
   registeredItem:
   - type: 0
     sprite: {fileID: 0}
+  - type: 1
+    sprite: {fileID: -2230352761875179815, guid: 44a8b76b70d48db4aa2dcac3eb64eb88, type: 3}
+  - type: 2
+    sprite: {fileID: 21300000, guid: 68e77ca80e0e923498d6da9c47962cbf, type: 3}
+  - type: 3
+    sprite: {fileID: 21300000, guid: 7d8caa21bea4c0c49aaebf3d72e79f7e, type: 3}
+  - type: 4
+    sprite: {fileID: 21300000, guid: 12ebc92931c735a40954d86dbf598391, type: 3}

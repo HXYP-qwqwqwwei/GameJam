@@ -14,6 +14,7 @@ public class InventoryView : MonoBehaviour
     public GameObject invSlotPrefab;
     public Inventory inventory;
 
+    public int selectedSlotIndex = -1;
     private readonly List<GameObject> _invSlots = new();
     
     // Start is called before the first frame update
@@ -28,6 +29,7 @@ public class InventoryView : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
     }
 
     public void UpdateInventory()
@@ -46,7 +48,16 @@ public class InventoryView : MonoBehaviour
         for (int i = 0; i < inventory.Count; ++i)
         {
             GameObject invSlot = Instantiate(invSlotPrefab, new Vector3(0, heightOffset, 0), new Quaternion());
-            invSlot.GetComponent<ItemSlot>().SetSlotIndex(i);
+            ItemSlot slot = invSlot.GetComponent<ItemSlot>();
+            slot.SetSlotIndex(i);
+            if (i == selectedSlotIndex)
+            {
+                slot.SetColor(new Color(.5f, .5f, 0.5f));
+            }
+            else
+            {
+                slot.SetColor(new Color(1.0f, 1.0f, 1.0f));
+            }
             invSlot.transform.SetParent(_content.transform, false);
             heightOffset += deltaHeight;
             _invSlots.Add(invSlot);

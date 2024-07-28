@@ -3,7 +3,7 @@ using UnityEngine.UI;
 public class PickableItem : SceneItem
 {
     private Image _image;
-    public ItemType itemType = ItemType.Air;
+    public ItemType itemType = ItemType.None;
     public GameInstance instance;
 
     // Start is called before the first frame update
