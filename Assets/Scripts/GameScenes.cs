@@ -20,7 +20,7 @@ public class GameScenes : MonoBehaviour
     public void PrevScene()
     {
         GameObject currentScene = mainScenes[_currentSceneIndex];
-        _currentSceneIndex = (_currentSceneIndex - 1) % mainScenes.Count;
+        _currentSceneIndex = (_currentSceneIndex + 3) % mainScenes.Count;
         GameObject nextScene = mainScenes[_currentSceneIndex];
         currentScene.SetActive(false);
         nextScene.SetActive(true);
