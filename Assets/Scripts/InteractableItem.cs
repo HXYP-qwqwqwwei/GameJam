@@ -26,7 +26,7 @@ public class InteractableItem: SceneItem
 
     public override void OnClick()
     {
-        if (!_isInteracted && gameInstance.inventory.SelectedItem() == interactItemType)
+        if (!_isInteracted && (interactItemType == ItemType.None || gameInstance.inventory.SelectedItem() == interactItemType))
         {
             if (interactiveSprite != null)
             {
