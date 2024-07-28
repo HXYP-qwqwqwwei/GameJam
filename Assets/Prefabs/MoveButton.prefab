@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 572656700057352677}
   - component: {fileID: 6132642641111205497}
   - component: {fileID: 8781812987091025901}
-  - component: {fileID: 3622478576538173997}
   m_Layer: 5
   m_Name: MoveButton
   m_TagString: Untagged
@@ -120,30 +119,4 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6132642641111205497}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3622478576538173997}
-        m_TargetAssemblyTypeName: TriangleButton, Assembly-CSharp
-        m_MethodName: SwitchAngle
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &3622478576538173997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3105677143201659772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a391c510e4cd0f48852c01ee9fa0617, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentScene: {fileID: 0}
-  nextScene: {fileID: 0}
+      m_Calls: []
