@@ -7,18 +7,18 @@ public class PickableItem : SceneItem
 {
     private Image _image;
     public ItemType itemType;
-    public Inventory inventory;
-    public GameData gameData;
+    public GameInstance instance;
 
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Image>().sprite = gameData.GetItem(itemType).sprite;
+        GetComponent<Image>().sprite = instance.gameData.GetItem(itemType).sprite;
     }
 
     void OnClick()
     {
-        inventory.AddItem(itemType);
+        instance.inventory.AddItem(itemType);
+        instance.InventoryView.UpdateInventory();
         Destroy(gameObject);
     }
 }

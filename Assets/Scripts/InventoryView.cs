@@ -19,19 +19,18 @@ public class InventoryView : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // GetComponent<ScrollView>().transform;
         GameObject viewport = transform.GetChild(0).gameObject;
         _content = viewport.transform.GetChild(0).gameObject;
         _contentTransform = _content.GetComponent<RectTransform>();
+        UpdateInventory();
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateInventory(inventory);
     }
 
-    void UpdateInventory(Inventory inventory)
+    public void UpdateInventory()
     {
         foreach (GameObject slot in _invSlots)
         {
@@ -47,7 +46,7 @@ public class InventoryView : MonoBehaviour
         for (int i = 0; i < inventory.Count; ++i)
         {
             GameObject invSlot = Instantiate(invSlotPrefab, new Vector3(0, heightOffset, 0), new Quaternion());
-            invSlot.GetComponent<Image>().sprite = this.inventory.GetItem(i).sprite;
+            invSlot.GetComponent<ItemSlot>().SetSlotIndex(i);
             invSlot.transform.SetParent(_content.transform, false);
             heightOffset += deltaHeight;
             _invSlots.Add(invSlot);

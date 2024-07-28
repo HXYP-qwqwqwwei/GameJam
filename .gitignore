@@ -143,3 +143,5 @@ PackageBackups/
 # UWP builds
 /UWP/*
 Assets/TextMesh Pro.meta
+Assets/GentlelandSettings.meta
+Assets/Gentleland.meta

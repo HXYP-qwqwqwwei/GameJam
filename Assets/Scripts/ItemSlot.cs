@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class ItemSlot : MonoBehaviour
     public int slotIndex;
     public GameData gameData;
     public Inventory inventory;
+    private bool _isSelected;
     
     // Start is called before the first frame update
     void Start()
@@ -27,5 +29,13 @@ public class ItemSlot : MonoBehaviour
     {
         slotIndex = index;
     }
-
+    
+    
+    private void OnMouseOver()
+    {
+        if (Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            
+        }
+    }
 }
