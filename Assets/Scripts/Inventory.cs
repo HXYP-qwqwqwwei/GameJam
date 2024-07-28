@@ -20,7 +20,7 @@ public class Inventory : ScriptableObject
 
     public GameItem GetItem(int index)
     {
-        return index >= items.Count ? gameData.GetItem(ItemType.Air) : items[index];
+        return index >= items.Count ? gameData.GetItem(ItemType.None) : items[index];
     }
 
     public int Count => items.Count;
@@ -33,7 +33,7 @@ public class Inventory : ScriptableObject
 
     public ItemType SelectedItem()
     {
-        return selectedItem == -1 ? ItemType.Air : items[selectedItem].type;
+        return selectedItem == -1 ? ItemType.None : items[selectedItem].type;
     }
 
     public void Clear()

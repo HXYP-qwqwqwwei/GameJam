@@ -21,6 +21,8 @@ public class GameInstance : MonoBehaviour
 
     private int _currentSceneIndex;
     private InventoryView _inventoryView;
+    
+    public GameObject invSlotPrefab;
 
     private void Update()
     {

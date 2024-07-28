@@ -52,7 +52,7 @@ public class InventoryView : MonoBehaviour
             slot.SetSlotIndex(i);
             if (i == selectedSlotIndex)
             {
-                slot.SetColor(new Color(1.0f, 1.0f, 0.0f));
+                slot.SetColor(new Color(.5f, .5f, 0.5f));
             }
             else
             {

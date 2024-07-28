@@ -3,8 +3,11 @@ using UnityEngine;
 
 public enum ItemType
 {
-    Air,
-    TestItem,
+    None,
+    Spade,
+    RedUsbDisk,
+    BlueUsbDisk,
+    StorageKey
 }
 
 [Serializable]

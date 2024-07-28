@@ -2663,6 +2663,7 @@ MonoBehaviour:
   - {fileID: 409196221}
   - {fileID: 317859288}
   inventoryObject: {fileID: 92779272}
+  invSlotPrefab: {fileID: 0}
 --- !u!4 &552498045
 Transform:
   m_ObjectHideFlags: 0
@@ -7420,7 +7421,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4613072073087137098, guid: 30cf2f857fb89e141ab3e9518578f51b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0005729823
+      value: 0.0004496415
       objectReference: {fileID: 0}
     - target: {fileID: 6437708133196546485, guid: 30cf2f857fb89e141ab3e9518578f51b, type: 3}
       propertyPath: m_Name
