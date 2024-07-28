@@ -13,8 +13,4 @@ MonoBehaviour:
   m_Name: Save
   m_EditorClassIdentifier: 
   gameData: {fileID: 11400000, guid: 33bead890f6403a4495a728662744408, type: 2}
-  items:
-  - type: 0
-    sprite: {fileID: 0}
-  - type: 0
-    sprite: {fileID: 0}
+  items: []

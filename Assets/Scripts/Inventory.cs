@@ -2,12 +2,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-[CreateAssetMenu(fileName = "Save", menuName = "ScriptableObjects/Save", order = 1)]
+[CreateAssetMenu(fileName = "Save", menuName = "ScriptableObjects/Inventory", order = 1)]
 public class Inventory : ScriptableObject
 {
     public GameData gameData;
     
-    [FormerlySerializedAs("_items")] [SerializeField]
+    [SerializeField]
     private List<GameItem> items = new ();
 
     public void AddItem(ItemType itemType)
@@ -21,4 +21,9 @@ public class Inventory : ScriptableObject
     }
 
     public int Count => items.Count;
+
+    public void Clear()
+    {
+        items.Clear();
+    }
 }

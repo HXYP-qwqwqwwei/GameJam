@@ -12,15 +12,6 @@ public class BgmOnOff : MonoBehaviour
 
     void Start()
     {
-        if (musicToggle.isOn)
-        {
-            bgm.Play();
-        }
-        else
-        {
-            bgm.Pause();
-        }
-        
         musicToggle.onValueChanged.AddListener(delegate
         {
             ToggleValueChanged(musicToggle);

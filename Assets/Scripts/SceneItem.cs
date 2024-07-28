@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class SceneItem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public virtual void OnClick()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void OnInteract()
     {
         
     }

@@ -4,6 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
+[Serializable]
+public class GameState
+{
+    public bool isValid = false;
+    
+}
+
 public class GameInstance : MonoBehaviour
 {
     public Inventory inventory;
@@ -20,6 +27,7 @@ public class GameInstance : MonoBehaviour
     private void Start()
     {
         _inventoryView = inventoryObject.GetComponent<InventoryView>();
+        inventory.Clear();
         _inventoryView.inventory = inventory;
     }
 

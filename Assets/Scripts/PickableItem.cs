@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.UI;
 
 public class PickableItem : SceneItem
 {
     private Image _image;
-    public ItemType itemType;
+    public ItemType itemType = ItemType.Air;
     public GameInstance instance;
 
     // Start is called before the first frame update
@@ -15,7 +12,7 @@ public class PickableItem : SceneItem
         GetComponent<Image>().sprite = instance.gameData.GetItem(itemType).sprite;
     }
 
-    void OnClick()
+    public override void OnClick()
     {
         instance.inventory.AddItem(itemType);
         instance.InventoryView.UpdateInventory();
