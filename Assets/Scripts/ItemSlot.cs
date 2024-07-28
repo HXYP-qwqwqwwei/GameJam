@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -8,11 +5,9 @@ using UnityEngine.UI;
 public class ItemSlot : MonoBehaviour
 {
     private Image _image;
+    private Color _color;
     public int slotIndex;
-    public GameData gameData;
     public Inventory inventory;
-    private bool _isSelected = false;
-    private GameObject _movingSlot;
     
     // Start is called before the first frame update
     void Start()
@@ -24,6 +19,7 @@ public class ItemSlot : MonoBehaviour
     void Update()
     {
         _image.sprite = inventory.GetItem(slotIndex).sprite;
+        _image.color = _color;
     }
 
     public void SetSlotIndex(int index)
@@ -31,17 +27,20 @@ public class ItemSlot : MonoBehaviour
         slotIndex = index;
     }
     
-    
-    private void OnMouseOver()
+    public void OnClick()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (inventory.SelectedSlotIndex == slotIndex)
         {
-            _isSelected = true;
+            inventory.SelectedSlotIndex = -1;
         }
+        else
+        {
+            inventory.SelectedSlotIndex = slotIndex;
+        }
+    }
 
-        if (Input.GetMouseButtonUp(0))
-        {
-            _isSelected = false;
-        }
+    public void SetColor(Color color)
+    {
+        _color = color;
     }
 }

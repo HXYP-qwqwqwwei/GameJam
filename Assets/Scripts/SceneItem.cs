@@ -8,9 +8,4 @@ public class SceneItem : MonoBehaviour
     {
         
     }
-
-    public virtual void OnInteract()
-    {
-        
-    }
 }
