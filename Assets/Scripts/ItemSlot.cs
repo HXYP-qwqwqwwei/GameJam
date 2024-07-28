@@ -11,7 +11,8 @@ public class ItemSlot : MonoBehaviour
     public int slotIndex;
     public GameData gameData;
     public Inventory inventory;
-    private bool _isSelected;
+    private bool _isSelected = false;
+    private GameObject _movingSlot;
     
     // Start is called before the first frame update
     void Start()
@@ -33,9 +34,14 @@ public class ItemSlot : MonoBehaviour
     
     private void OnMouseOver()
     {
-        if (Input.GetTouch(0).phase == TouchPhase.Began)
+        if (Input.GetMouseButtonDown(0))
         {
-            
+            _isSelected = true;
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            _isSelected = false;
         }
     }
 }
