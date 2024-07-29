@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,11 +8,17 @@ public class PasswordUnlock : MonoBehaviour
     public Button[] numberButtons;  // 数字按钮数组
     public Image phoneImage;  // 原始手机图片
     public Image unlockedImage;  // 解锁后的图片
+    public GameObject tips;
+    //public Text text;
     public string correctPassword = "000229";  // 正确的密码
     private string inputPassword = "";  // 用户输入的密码
+    public float duration = 1.0f;
+    public BackButton returnButton;
 
     void Start()
     {
+        //returnButton = GetComponent<BackButton>();
+        //returnButton.GetComponent<Button>().onClick.AddListener(OnReturnButtonClick);
         // 添加数字按钮的点击事件
         for (int i = 0; i < numberButtons.Length; i++)
         {
@@ -20,6 +27,10 @@ public class PasswordUnlock : MonoBehaviour
         }
     }
 
+    void OnReturnButtonClick()
+    {
+        inputPassword = "";
+    }
     void OnNumberButtonClick(int number)
     {
         // 在输入的密码中添加数字
@@ -41,10 +52,19 @@ public class PasswordUnlock : MonoBehaviour
             {
                 ShowIncorrectPasswordMessage();
                 inputPassword = "";  // 重置输入的密码
+                StartCoroutine(ShowToast());
             }
         }
     }
 
+    IEnumerator ShowToast()
+    {
+        //text.text = message;
+        tips.SetActive(true);
+
+        yield return new WaitForSeconds(duration);
+        tips.SetActive(false);
+    }
     void UnlockResource()
     {
         // 显示解锁后的图片
