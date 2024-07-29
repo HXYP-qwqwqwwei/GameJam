@@ -13,7 +13,7 @@ public class SaferUnlock : MonoBehaviour
     //public Text text;
     public string correctPassword = "22101";  // 正确的密码
     private string inputPassword = "";  // 用户输入的密码
-    public float duration = 1.0f;
+    public float duration = 0.25f;
 
     public List<GameObject> shownInputs;
 
