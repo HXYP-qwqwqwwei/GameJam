@@ -1,23 +1,17 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
-using Image = UnityEngine.UI.Image;
 
 public class InventoryView : MonoBehaviour
 {
-    private List<GameObject> _imageObjects;
-    private GameObject _content;
-    private RectTransform _contentTransform;
     public GameObject invSlotPrefab;
     public Inventory inventory;
 
     public int selectedSlotIndex = -1;
-    // private readonly List<GameObject> _invSlots = new();
-    //
-    private readonly List<GameObject> availableSlots = new ();
+
+    private List<GameObject> _imageObjects;
+    private GameObject _content;
+    private RectTransform _contentTransform;
+    private readonly List<GameObject> _availableSlots = new ();
     
     // Start is called before the first frame update
     void Start()
@@ -32,24 +26,18 @@ public class InventoryView : MonoBehaviour
             invSlot.GetComponent<ItemSlot>().SetSlotIndex(i);
             invSlot.transform.SetParent(_content.transform, false);
             invSlot.SetActive(false);
-            availableSlots.Add(invSlot);
+            _availableSlots.Add(invSlot);
         }
         
         UpdateInventory();
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void UpdateInventory()
     {
         for (int i = inventory.Count; i < 8; ++i)
         {
-            availableSlots[i].SetActive(false);
+            _availableSlots[i].SetActive(false);
         }
         
         const float deltaHeight = 200.0f;
@@ -59,7 +47,7 @@ public class InventoryView : MonoBehaviour
         float heightOffset = -contentHeight + deltaHeight / 2;
         for (int i = 0; i < inventory.Count; ++i)
         {
-            GameObject invSlot = availableSlots[i];
+            GameObject invSlot = _availableSlots[i];
             invSlot.transform.SetParent(_content.transform, false);
             invSlot.transform.SetLocalPositionAndRotation(new Vector3(100, heightOffset, 0), new Quaternion());
             ItemSlot slot = invSlot.GetComponent<ItemSlot>();
