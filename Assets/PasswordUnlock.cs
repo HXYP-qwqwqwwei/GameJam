@@ -59,6 +59,7 @@ public class PasswordUnlock : MonoBehaviour
             {
                 ShowIncorrectPasswordMessage();
                 inputPassword = "";  // 重置输入的密码
+                password.text = "password:";
                 StartCoroutine(ShowToast());
             }
         }
