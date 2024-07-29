@@ -15,7 +15,9 @@ public class InventoryView : MonoBehaviour
     public Inventory inventory;
 
     public int selectedSlotIndex = -1;
-    private readonly List<GameObject> _invSlots = new();
+    // private readonly List<GameObject> _invSlots = new();
+    //
+    private readonly List<GameObject> availableSlots = new ();
     
     // Start is called before the first frame update
     void Start()
@@ -23,7 +25,18 @@ public class InventoryView : MonoBehaviour
         GameObject viewport = transform.GetChild(0).gameObject;
         _content = viewport.transform.GetChild(0).gameObject;
         _contentTransform = _content.GetComponent<RectTransform>();
+        
+        for (int i = 0; i < 8; ++i)
+        {
+            GameObject invSlot = Instantiate(invSlotPrefab, new Vector3(), new Quaternion());
+            invSlot.GetComponent<ItemSlot>().SetSlotIndex(i);
+            invSlot.transform.SetParent(_content.transform, false);
+            invSlot.SetActive(false);
+            availableSlots.Add(invSlot);
+        }
+        
         UpdateInventory();
+
     }
 
     // Update is called once per frame
@@ -34,20 +47,21 @@ public class InventoryView : MonoBehaviour
 
     public void UpdateInventory()
     {
-        foreach (GameObject slot in _invSlots)
+        for (int i = inventory.Count; i < 8; ++i)
         {
-            Destroy(slot);
+            availableSlots[i].SetActive(false);
         }
-        _invSlots.Clear();
         
         const float deltaHeight = 200.0f;
         float contentHeight = deltaHeight * inventory.Count;
         _contentTransform.sizeDelta = new Vector2(1, contentHeight);
         
-        float heightOffset = -contentHeight / 2.0f + 100.0f;
+        float heightOffset = -contentHeight + deltaHeight / 2;
         for (int i = 0; i < inventory.Count; ++i)
         {
-            GameObject invSlot = Instantiate(invSlotPrefab, new Vector3(0, heightOffset, 0), new Quaternion());
+            GameObject invSlot = availableSlots[i];
+            invSlot.transform.SetParent(_content.transform, false);
+            invSlot.transform.SetLocalPositionAndRotation(new Vector3(100, heightOffset, 0), new Quaternion());
             ItemSlot slot = invSlot.GetComponent<ItemSlot>();
             slot.SetSlotIndex(i);
             if (i == selectedSlotIndex)
@@ -58,9 +72,8 @@ public class InventoryView : MonoBehaviour
             {
                 slot.SetColor(new Color(1.0f, 1.0f, 1.0f));
             }
-            invSlot.transform.SetParent(_content.transform, false);
             heightOffset += deltaHeight;
-            _invSlots.Add(invSlot);
+            invSlot.SetActive(true);
         }
     }
 }

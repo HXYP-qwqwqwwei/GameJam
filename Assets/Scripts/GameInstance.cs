@@ -43,7 +43,7 @@ public class GameInstance : MonoBehaviour
         inventory.Clear();
         _inventoryView.inventory = inventory;
         inventory.SelectedSlotIndex = -1;
-        _inventoryView.UpdateInventory();
+        // _inventoryView.UpdateInventory();
     }
 
     public void NextScene()
