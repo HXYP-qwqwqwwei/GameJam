@@ -1,6 +1,9 @@
 using System.Collections;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PasswordUnlock : MonoBehaviour
 {
@@ -9,14 +12,17 @@ public class PasswordUnlock : MonoBehaviour
     public Image phoneImage;  // 原始手机图片
     public Image unlockedImage;  // 解锁后的图片
     public GameObject tips;
+
+    public TextMeshProUGUI password;
     //public Text text;
     public string correctPassword = "000229";  // 正确的密码
     private string inputPassword = "";  // 用户输入的密码
     public float duration = 1.0f;
-    public BackButton returnButton;
+    //public BackButton returnButton;
 
     void Start()
     {
+        
         //returnButton = GetComponent<BackButton>();
         //returnButton.GetComponent<Button>().onClick.AddListener(OnReturnButtonClick);
         // 添加数字按钮的点击事件
@@ -37,7 +43,9 @@ public class PasswordUnlock : MonoBehaviour
         inputPassword += number.ToString();
 
         // 打印当前输入的密码（调试用）
+        //text.text = inputPassword;
         Debug.Log("当前输入的密码: " + inputPassword);
+        password.text =  "password:"+ inputPassword;
 
         // 检查输入的密码是否达到所需长度
         if (inputPassword.Length == correctPassword.Length)
