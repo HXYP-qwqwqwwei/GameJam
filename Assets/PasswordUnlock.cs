@@ -46,7 +46,6 @@ public class PasswordUnlock : MonoBehaviour
             if (inputPassword == correctPassword)
             {
                 UnlockResource();
-                gameInstance.gameState.phoneUnlocked = true;
             }
             else
             {
@@ -70,7 +69,6 @@ public class PasswordUnlock : MonoBehaviour
         // 显示解锁后的图片
         phoneImage.gameObject.SetActive(false);
         unlockedImage.gameObject.SetActive(true);
-        gameInstance.gameState.phoneUnlocked = true;
         // Debug.Log("资源已解锁！");
     }
 

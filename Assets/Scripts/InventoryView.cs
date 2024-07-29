@@ -13,8 +13,7 @@ public class InventoryView : MonoBehaviour
     private RectTransform _contentTransform;
     private readonly List<GameObject> _availableSlots = new ();
     
-    // Start is called before the first frame update
-    void Start()
+    public void InitInvSlots()
     {
         GameObject viewport = transform.GetChild(0).gameObject;
         _content = viewport.transform.GetChild(0).gameObject;

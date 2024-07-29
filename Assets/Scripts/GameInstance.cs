@@ -4,13 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-[Serializable]
-public class GameState
-{
-    public bool phoneUnlocked = false;
-    public bool saferUnlocked = false;
-    public bool televisionOpened = false;
-}
 
 public class GameInstance : MonoBehaviour
 {
@@ -23,9 +16,7 @@ public class GameInstance : MonoBehaviour
     private int _currentSceneIndex;
     private InventoryView _inventoryView;
     
-    public GameObject invSlotPrefab;
-
-    public GameState gameState;
+    public GameObject endingScene;
 
     private void Update()
     {
@@ -43,7 +34,7 @@ public class GameInstance : MonoBehaviour
         inventory.Clear();
         _inventoryView.inventory = inventory;
         inventory.SelectedSlotIndex = -1;
-        // _inventoryView.UpdateInventory();
+        _inventoryView.InitInvSlots();
     }
 
     public void NextScene()
@@ -65,9 +56,4 @@ public class GameInstance : MonoBehaviour
     }
 
     public InventoryView InventoryView => _inventoryView;
-
-    public void RecognizedKiller()
-    {
-        gameState.televisionOpened = true;
-    }
 }

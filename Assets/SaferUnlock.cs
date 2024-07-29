@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,8 +14,11 @@ public class SaferUnlock : MonoBehaviour
     public string correctPassword = "22101";  // 正确的密码
     private string inputPassword = "";  // 用户输入的密码
     public float duration = 1.0f;
-    //public BackButton returnButton;
 
+    public List<GameObject> shownInputs;
+
+    public List<Sprite> icons;
+    
     void Start()
     {
         //returnButton = GetComponent<BackButton>();
@@ -25,6 +29,11 @@ public class SaferUnlock : MonoBehaviour
             int index = i;  // 避免闭包问题
             numberButtons[i].onClick.AddListener(() => OnNumberButtonClick(index));
         }
+
+        for (int i = 0; i < 5; ++i)
+        {
+            shownInputs[i].SetActive(false);
+        }
     }
 
     void OnReturnButtonClick()
@@ -33,8 +42,11 @@ public class SaferUnlock : MonoBehaviour
     }
     void OnNumberButtonClick(int number)
     {
+        shownInputs[inputPassword.Length].SetActive(true);
+        shownInputs[inputPassword.Length].GetComponent<Image>().sprite = icons[number];
         // 在输入的密码中添加数字
         inputPassword += number.ToString();
+        
 
         // 打印当前输入的密码（调试用）
         Debug.Log("当前输入的密码: " + inputPassword);
@@ -46,7 +58,6 @@ public class SaferUnlock : MonoBehaviour
             if (inputPassword == correctPassword)
             {
                 UnlockResource();
-                gameInstance.gameState.phoneUnlocked = true;
             }
             else
             {
@@ -64,6 +75,12 @@ public class SaferUnlock : MonoBehaviour
 
         yield return new WaitForSeconds(duration);
         tips.SetActive(false);
+        
+        foreach (GameObject input in shownInputs)
+        {
+            input.SetActive(false);
+        }
+
     }
     void UnlockResource()
     {

@@ -21,6 +21,10 @@ public class InteractableItem: SceneItem
 
     private void Start()
     {
+        if (originalSprite == null)
+        {
+            GetComponent<Image>().color = new Color(1, 1, 1, 0);
+        }
         GetComponent<Image>().sprite = originalSprite;
     }
 
@@ -28,9 +32,12 @@ public class InteractableItem: SceneItem
     {
         if (!_isInteracted && (interactItemType == ItemType.None || gameInstance.inventory.SelectedItem() == interactItemType))
         {
+
             if (interactiveSprite != null)
             {
-                GetComponent<Image>().sprite = interactiveSprite;
+                Image image = GetComponent<Image>();
+                image.color = Color.white;
+                image.sprite = interactiveSprite;
             }
             if (spawnItem != ItemType.None)
             {
